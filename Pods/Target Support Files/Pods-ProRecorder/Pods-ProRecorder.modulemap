@@ -1,0 +1,6 @@
+framework module Pods_ProRecorder {
+  umbrella header "Pods-ProRecorder-umbrella.h"
+
+  export *
+  module * { export * }
+}
