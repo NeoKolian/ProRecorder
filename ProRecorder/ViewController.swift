@@ -9,13 +9,13 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
     var soundRecorder : AVAudioRecorder!
-    var soundPlayer: AVAudioPlayer!
+    var soundPlayer : AVAudioPlayer!
     
     var fileName: String = "audioFile.m4a"
     
@@ -27,14 +27,16 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
         return paths[0]
     }
     
     func setupRecorder() {
         let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
-        let recordSetting = [AVFormatIDKey : kAudioFormatAppleLossless, AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue, AVEncoderBitRateKey : 320000, AVNumberOfChannelsKey : 2, AVSampleRateKey : 44100.2] as [String : Any]
-    
+        let recordSetting = [ AVFormatIDKey : kAudioFormatAppleLossless,
+                              AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
+                              AVEncoderBitRateKey : 320000,
+                              AVNumberOfChannelsKey : 2,
+                              AVSampleRateKey : 44100.2] as [String : Any]
         do {
             soundRecorder = try AVAudioRecorder(url: audioFileName, settings: recordSetting)
             soundRecorder.delegate = self
@@ -65,7 +67,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
         playButton.setTitle("Play", for: .normal)
     }
     
-    @IBAction func recordAction(_ sender: UIButton) {
+    @IBAction func recordAct(_ sender: Any) {
+        
         if recordButton.titleLabel?.text == "Record" {
             soundRecorder.record()
             recordButton.setTitle("Stop", for: .normal)
@@ -77,7 +80,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
         }
     }
     
-    @IBAction func playAction(_ sender: UIButton) {
+    @IBAction func playAct(_ sender: Any) {
+        
         if playButton.titleLabel?.text == "Play" {
             playButton.setTitle("Stop", for: .normal)
             recordButton.isEnabled = false

@@ -30,7 +30,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="recordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3EC-W1-2aF"/>
+                                            <action selector="recordAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6b-o5-vNe"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDz-q7-MTk">
@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
-                                            <action selector="playAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOi-k0-YdM"/>
+                                            <action selector="playAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jhf-yT-aOU"/>
                                         </connections>
                                     </button>
                                 </subviews>
