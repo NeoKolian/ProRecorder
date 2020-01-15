@@ -18,14 +18,11 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
-    var fileName: String = "audioFile.m4a"
     
     var myVoiceRecord = VoiceRecord()
 //    var myVoiceRecord: Results<VoiceRecord>?
     let realm = try! Realm()
-//    let defaultPath = Realm.Configuration.defaultConfiguration
-//    let defaultManager = try FileManager.defaultManager().removeItemAtPath(defaultPath)
-//
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRecorder()
@@ -39,7 +36,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     }
     
     func setupRecorder() {
-        let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
+        let audioFileName = getDocumentsDirectory().appendingPathComponent(myVoiceRecord.fileName)
         let recordSetting = [ AVFormatIDKey : kAudioFormatAppleLossless,
                               AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
                               AVEncoderBitRateKey : 320000,
@@ -55,7 +52,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     }
     
     func setupPlayer() {
-        let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
+        let audioFileName = getDocumentsDirectory().appendingPathComponent(myVoiceRecord.fileName)
         do {
             soundPlayer = try AVAudioPlayer(contentsOf: audioFileName)
             soundPlayer.delegate = self

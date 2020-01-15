@@ -14,5 +14,6 @@ class VoiceRecord: Object {
     @objc dynamic var title: String = "Record \(Date())"
     @objc dynamic var dateCreated: Date?
     @objc dynamic var lenght: String?
+    @objc dynamic var fileName: String = "audioFile\(Date()).m4a"
     
 }
