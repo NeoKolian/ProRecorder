@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C308E0723CE254C00218F23 /* VoiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C308E0623CE254C00218F23 /* VoiceRecord.swift */; };
 		9CA0794223CDB4BC00F54141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794123CDB4BC00F54141 /* AppDelegate.swift */; };
 		9CA0794423CDB4BC00F54141 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794323CDB4BC00F54141 /* SceneDelegate.swift */; };
 		9CA0794623CDB4BC00F54141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794523CDB4BC00F54141 /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		36D6E4A9B5F88A66CF4C97CA /* Pods-ProRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProRecorder.debug.xcconfig"; path = "Target Support Files/Pods-ProRecorder/Pods-ProRecorder.debug.xcconfig"; sourceTree = "<group>"; };
 		8C574BD0DE27B058B7B01711 /* Pods-ProRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProRecorder.release.xcconfig"; path = "Target Support Files/Pods-ProRecorder/Pods-ProRecorder.release.xcconfig"; sourceTree = "<group>"; };
-		9C308E0623CE254C00218F23 /* VoiceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecord.swift; sourceTree = "<group>"; };
 		9CA0793E23CDB4BC00F54141 /* ProRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA0794123CDB4BC00F54141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CA0794323CDB4BC00F54141 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				9CA0794123CDB4BC00F54141 /* AppDelegate.swift */,
-				9C308E0623CE254C00218F23 /* VoiceRecord.swift */,
 				9CA0794323CDB4BC00F54141 /* SceneDelegate.swift */,
 				9CA0794523CDB4BC00F54141 /* ViewController.swift */,
 				9CA0794723CDB4BC00F54141 /* Main.storyboard */,
@@ -210,7 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CA0794623CDB4BC00F54141 /* ViewController.swift in Sources */,
-				9C308E0723CE254C00218F23 /* VoiceRecord.swift in Sources */,
 				9CA0794223CDB4BC00F54141 /* AppDelegate.swift in Sources */,
 				9CA0794423CDB4BC00F54141 /* SceneDelegate.swift in Sources */,
 			);

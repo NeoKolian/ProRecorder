@@ -8,26 +8,29 @@
 
 import UIKit
 import AVFoundation
-import RealmSwift
 
 class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
     
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
+<<<<<<< HEAD
     
     var myVoiceRecord = VoiceRecord()
 //    var myVoiceRecord: Results<VoiceRecord>?
     let realm = try! Realm()
         
+=======
+    
+    var fileName: String = "audioFile.m4a"
+    
+>>>>>>> parent of a9edbef... commit before Realm integration
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRecorder()
         playButton.isEnabled = false
-        saveButton.isEnabled = false
     }
 
     func getDocumentsDirectory() -> URL {
@@ -65,7 +68,6 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         playButton.isEnabled = true
-        saveButton.isEnabled = true
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -97,21 +99,6 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
             soundPlayer.stop()
             playButton.setTitle("Play", for: .normal)
             recordButton.isEnabled = false
-        }
-    }
-    
-    @IBAction func saveAct(_ sender: UIButton) {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        try! realm.write {
-            realm.add(myVoiceRecord)
-//                       let newVoiceRecord = VoiceRecord()
-//                       //                newVoiceRecord.title = title!
-//                       print(title)
-//                       newVoiceRecord.dateCreated = Date()
-                   }
-        do {
-        } catch {
-            print("Error saving new items, \(error)")
         }
     }
 }

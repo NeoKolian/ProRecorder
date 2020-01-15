@@ -20,12 +20,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-rZ-eZi">
-                                <rect key="frame" x="76.5" y="661" width="261" height="54"/>
+                                <rect key="frame" x="84" y="661" width="246" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-bB-5iH" userLabel="Record Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-bB-5iH" userLabel="Record Button">
+                                        <rect key="frame" x="0.0" y="3" width="92" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Record">
+                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large"/>
                                         </state>
                                         <connections>
@@ -33,7 +34,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDz-q7-MTk">
-                                        <rect key="frame" x="197" y="0.0" width="64" height="54"/>
+                                        <rect key="frame" x="182" y="0.0" width="64" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
@@ -42,14 +43,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySF-uR-RBM">
-                                <rect key="frame" x="303" y="805" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5C-4C-aXh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -58,14 +51,17 @@
                             <constraint firstItem="FlT-rZ-eZi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lJD-5l-j3x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Y5A-Wr-rBm" appends="YES" id="RKt-5V-H32"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="playButton" destination="bDz-q7-MTk" id="6Sf-6H-YTD"/>
                         <outlet property="recordButton" destination="EdT-bB-5iH" id="MKz-9I-2cg"/>
-                        <outlet property="saveButton" destination="ySF-uR-RBM" id="6DB-eR-2OU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Y5A-Wr-rBm"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
