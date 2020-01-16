@@ -8,38 +8,41 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorderDelegate {
-
+    
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
-<<<<<<< HEAD
+    var soundSaver : AVAudioFile!
     
-    var myVoiceRecord = VoiceRecord()
-//    var myVoiceRecord: Results<VoiceRecord>?
+    var myRecordModel = RecordModel()
+    var myDBManager : DBManager = DBManagerImpl()
+    
     let realm = try! Realm()
-        
-=======
     
     var fileName: String = "audioFile.m4a"
     
->>>>>>> parent of a9edbef... commit before Realm integration
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRecorder()
         playButton.isEnabled = false
+        saveButton.isEnabled = false
+        
     }
-
+    
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
         return paths[0]
     }
     
     func setupRecorder() {
-        let audioFileName = getDocumentsDirectory().appendingPathComponent(myVoiceRecord.fileName)
+        let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
         let recordSetting = [ AVFormatIDKey : kAudioFormatAppleLossless,
                               AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
                               AVEncoderBitRateKey : 320000,
@@ -55,7 +58,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     }
     
     func setupPlayer() {
-        let audioFileName = getDocumentsDirectory().appendingPathComponent(myVoiceRecord.fileName)
+        let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
         do {
             soundPlayer = try AVAudioPlayer(contentsOf: audioFileName)
             soundPlayer.delegate = self
@@ -68,6 +71,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         playButton.isEnabled = true
+        saveButton.isEnabled = true
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -101,5 +105,22 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
             recordButton.isEnabled = false
         }
     }
-}
+    
+    @IBAction func saveAct(_ sender: UIButton) {
+        
+        let newRecord = RecordModel()
+        
+        let oldAudioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
+        let newAudioFileName = getDocumentsDirectory().appendingPathComponent(newRecord.fileName)
+        do {
+        try? FileManager.default.copyItem(at: oldAudioFileName, to: newAudioFileName)
+        } catch {
+            print(error.localizedDescription)
+        }
 
+        newRecord.title = "Record \(Date())"
+        newRecord.fileName = "audioFile\(Date()).m4a"
+        myDBManager.save(record: newRecord)
+    }
+    
+}
