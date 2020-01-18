@@ -18,7 +18,6 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
-    var soundSaver : AVAudioFile!
     
     var myRecordModel = RecordModel()
     var myDBManager : DBManager = DBManagerImpl()
@@ -121,6 +120,8 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
         newRecord.title = "Record \(Date())"
         newRecord.fileName = "audioFile\(Date()).m4a"
         myDBManager.save(record: newRecord)
+        
+        saveButton.isEnabled = false
     }
     
 }

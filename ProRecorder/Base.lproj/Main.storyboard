@@ -51,6 +51,16 @@
                                     <action selector="saveAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mn2-Sm-lmV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-fa-a3J">
+                                <rect key="frame" x="76" y="775" width="56" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="to the table" image="folder" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fWR-eV-AvT" kind="show" identifier="toTheTable" id="u3l-sq-HU7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -70,12 +80,12 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Record Table View Controller-->
         <scene sceneID="aQF-Zd-Zwg">
             <objects>
-                <tableViewController id="fWR-eV-AvT" sceneMemberID="viewController">
+                <tableViewController id="fWR-eV-AvT" customClass="RecordTableViewController" customModule="ProRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7JL-os-J3U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -93,10 +103,14 @@
                             <outlet property="delegate" destination="fWR-eV-AvT" id="s4b-7F-9Ww"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="hFh-ev-VU7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxZ-Nn-Q8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="901" y="110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder" catalog="system" width="64" height="46"/>
+    </resources>
 </document>

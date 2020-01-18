@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C76D9D523CF582F003BE28D /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C76D9D423CF582F003BE28D /* RecordModel.swift */; };
 		9C84B75C23D05530000ECEA6 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84B75B23D05530000ECEA6 /* DBManager.swift */; };
+		9C9C607423D20D9E00D1F534 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9C607323D20D9E00D1F534 /* RecordTableViewController.swift */; };
 		9CA0794223CDB4BC00F54141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794123CDB4BC00F54141 /* AppDelegate.swift */; };
 		9CA0794423CDB4BC00F54141 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794323CDB4BC00F54141 /* SceneDelegate.swift */; };
 		9CA0794623CDB4BC00F54141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0794523CDB4BC00F54141 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		8C574BD0DE27B058B7B01711 /* Pods-ProRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProRecorder.release.xcconfig"; path = "Target Support Files/Pods-ProRecorder/Pods-ProRecorder.release.xcconfig"; sourceTree = "<group>"; };
 		9C76D9D423CF582F003BE28D /* RecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		9C84B75B23D05530000ECEA6 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		9C9C607323D20D9E00D1F534 /* RecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
 		9CA0793E23CDB4BC00F54141 /* ProRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA0794123CDB4BC00F54141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CA0794323CDB4BC00F54141 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				9C76D9D423CF582F003BE28D /* RecordModel.swift */,
 				9C84B75B23D05530000ECEA6 /* DBManager.swift */,
 				9CA0794523CDB4BC00F54141 /* ViewController.swift */,
+				9C9C607323D20D9E00D1F534 /* RecordTableViewController.swift */,
 				9CA0794723CDB4BC00F54141 /* Main.storyboard */,
 				9CA0794A23CDB4BE00F54141 /* Assets.xcassets */,
 				9CA0794C23CDB4BE00F54141 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 				9CA0794623CDB4BC00F54141 /* ViewController.swift in Sources */,
 				9C76D9D523CF582F003BE28D /* RecordModel.swift in Sources */,
 				9CA0794223CDB4BC00F54141 /* AppDelegate.swift in Sources */,
+				9C9C607423D20D9E00D1F534 /* RecordTableViewController.swift in Sources */,
 				9CA0794423CDB4BC00F54141 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
