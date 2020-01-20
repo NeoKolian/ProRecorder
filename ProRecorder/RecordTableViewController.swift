@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
+
+var myDBManager : DBManager = DBManagerImpl()
 
 class RecordTableViewController: UITableViewController {
 
@@ -21,10 +24,12 @@ class RecordTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        var rowsCount = DBManagerImpl.obtainRecords(DBManagerImpl)
+        
+        return rowsCount
     }
 
     /*

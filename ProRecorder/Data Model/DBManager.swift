@@ -15,10 +15,12 @@ protocol DBManager {
     
     func obtainRecords() -> [RecordModel]
     
+    func deleteFromDB(object: RecordModel)
+    
 }
 
 class DBManagerImpl: DBManager {
-    
+        
     fileprivate lazy var mainRealm = try! Realm(configuration: .defaultConfiguration)
     
     func save(record:RecordModel){
@@ -33,4 +35,10 @@ class DBManagerImpl: DBManager {
         
         return Array(models)
     }
+    
+    func deleteFromDB(object: RecordModel)   {
+         try!   mainRealm.write {
+            mainRealm.delete(object)
+         }
+     }
 }
