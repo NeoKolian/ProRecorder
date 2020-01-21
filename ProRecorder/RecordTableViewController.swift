@@ -9,39 +9,44 @@
 import UIKit
 import RealmSwift
 
-var myDBManager : DBManager = DBManagerImpl()
-
 class RecordTableViewController: UITableViewController {
 
+    var myDBManager: DBManager = DBManagerImpl()
+    var tableRecord: Results<RecordModel>?
+    var selectedRecords: RecordModel? {
+        didSet {
+            loadItems()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.reloadData()
 
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        var rowsCount = DBManagerImpl.obtainRecords(DBManagerImpl)
         
-        return rowsCount
+        return tableRecord?.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+               if let record = tableRecord?[indexPath.row] {
+                   cell.textLabel?.text = record.title
+        } else {
+            cell.textLabel?.text = "No Items Added"
+        }
         return cell
     }
-    */
-
+    
+    func loadItems() {
+        tableRecord = selectedRecords?.records.sorted(byKeyPath: "title", ascending: true)
+        tableView.reloadData()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

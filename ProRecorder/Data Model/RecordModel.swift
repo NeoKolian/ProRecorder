@@ -16,6 +16,6 @@ class RecordModel: Object {
 //    dynamic var dateCreated: Date?
 //    dynamic var lenght: String?
     dynamic var fileName: String = "audioFile\(Date()).m4a"
-    let items = List<Item>()
-    
+    var records = List<RecordModel>()
+
 }

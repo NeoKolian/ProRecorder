@@ -13,7 +13,7 @@ protocol DBManager {
     
     func save(record: RecordModel)
     
-    func obtainRecords() -> [RecordModel]
+//    func obtainRecords() -> [RecordsStore]
     
     func deleteFromDB(object: RecordModel)
     
@@ -30,11 +30,11 @@ class DBManagerImpl: DBManager {
         }
     }
     
-    func obtainRecords() -> [RecordModel] {
-        let models = mainRealm.objects(RecordModel.self)
-        
-        return Array(models)
-    }
+//    func obtainRecords() -> [RecordsStore] {
+//        let records = mainRealm.objects(RecordsStore.self)
+//
+//        return Array(records)
+//    }
     
     func deleteFromDB(object: RecordModel)   {
          try!   mainRealm.write {

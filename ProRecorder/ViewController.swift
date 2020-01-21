@@ -31,7 +31,6 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
         setupRecorder()
         playButton.isEnabled = false
         saveButton.isEnabled = false
-        
     }
     
     func getDocumentsDirectory() -> URL {
