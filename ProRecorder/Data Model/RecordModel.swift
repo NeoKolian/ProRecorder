@@ -11,10 +11,8 @@ import RealmSwift
 
 @objcMembers
 class RecordModel: Object {
-    
+   
     dynamic var title: String = "Record \(Date())"
-//    dynamic var dateCreated: Date?
-//    dynamic var lenght: String?
     dynamic var fileName: String = "audioFile\(Date()).m4a"
     var records = List<RecordModel>()
 

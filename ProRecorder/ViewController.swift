@@ -19,7 +19,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
     
-    var myRecordModel = RecordModel()
+//    let newRecord = RecordModel()
     var myDBManager : DBManager = DBManagerImpl()
     
     let realm = try! Realm()
@@ -105,22 +105,18 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     }
     
     @IBAction func saveAct(_ sender: UIButton) {
-        
-        let newRecord = RecordModel()
-        
+        let myRecordModel = RecordModel()
+
         let oldAudioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
-        let newAudioFileName = getDocumentsDirectory().appendingPathComponent(newRecord.fileName)
+        let newAudioFileName = getDocumentsDirectory().appendingPathComponent(myRecordModel.fileName)
         do {
         try? FileManager.default.copyItem(at: oldAudioFileName, to: newAudioFileName)
         } catch {
             print(error.localizedDescription)
         }
 
-        newRecord.title = "Record \(Date())"
-        newRecord.fileName = "audioFile\(Date()).m4a"
-        myDBManager.save(record: newRecord)
+        myDBManager.save(record: myRecordModel)
         
         saveButton.isEnabled = false
     }
-    
 }

@@ -58,7 +58,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fWR-eV-AvT" kind="show" identifier="toTheTable" id="u3l-sq-HU7"/>
+                                    <segue destination="fWR-eV-AvT" kind="show" identifier="toTheTable" id="FKO-5D-waZ"/>
                                 </connections>
                             </button>
                         </subviews>

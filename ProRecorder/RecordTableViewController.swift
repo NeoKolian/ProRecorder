@@ -10,19 +10,16 @@ import UIKit
 import RealmSwift
 
 class RecordTableViewController: UITableViewController {
-
+    
     var myDBManager: DBManager = DBManagerImpl()
     var tableRecord: Results<RecordModel>?
-    var selectedRecords: RecordModel? {
-        didSet {
-            loadItems()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.reloadData()
+        
+        fetchData()
 
     }
 
@@ -30,23 +27,36 @@ class RecordTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return tableRecord?.count ?? 0
+        let obtain = myDBManager.obtainRecords()
+        print(obtain.count)
+        
+        return obtain.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-               if let record = tableRecord?[indexPath.row] {
-                   cell.textLabel?.text = record.title
-        } else {
-            cell.textLabel?.text = "No Items Added"
-        }
+        print(indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        let title = tableRecord?[indexPath.row]
+        cell.textLabel?.text = title?.title
+
         return cell
     }
     
-    func loadItems() {
-        tableRecord = selectedRecords?.records.sorted(byKeyPath: "title", ascending: true)
-        tableView.reloadData()
+    func fetchData() {
+        let realm = try! Realm()
+        
+        tableRecord = realm.objects(RecordModel.self)
+//
+//        for person in CityArray {
+//            print("\(person.cityName) is in \(person.countryName)")
+//        }
     }
+//    func loadItems() {
+//
+//        tableRecord = selectedRecords?.records.sorted(byKeyPath: "title", ascending: true)
+//        tableView.reloadData()
+//
+//    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
