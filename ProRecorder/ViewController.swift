@@ -19,7 +19,6 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
     
-//    let newRecord = RecordModel()
     var myDBManager : DBManager = DBManagerImpl()
     
     let realm = try! Realm()
@@ -119,4 +118,5 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
         
         saveButton.isEnabled = false
     }
+
 }

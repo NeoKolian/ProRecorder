@@ -26,8 +26,9 @@ class DBManagerImpl: DBManager {
     var myRecordModel = RecordModel()
     
     func save(record:RecordModel){
-        myRecordModel.fileName = "audioFile\(Date()).m4a"
-        myRecordModel.title = "Record \(Date())"
+        
+        myRecordModel.fileName = ""
+        myRecordModel.title = ""
         
         try! mainRealm.write {
             mainRealm.add(record)
