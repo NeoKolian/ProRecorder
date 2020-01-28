@@ -6,6 +6,7 @@ target 'ProRecorder' do
   use_frameworks!
   pod 'RealmSwift'
   pod 'SwipeCellKit'
+  pod 'DSWaveformImage', '~> 6.1'
   # Pods for ProRecorder
 
 end

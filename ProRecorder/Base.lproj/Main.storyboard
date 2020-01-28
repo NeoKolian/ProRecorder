@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,9 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRa-yA-NKG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JRa-yA-NKG" customClass="WaveformImageView" customModule="DSWaveformImage">
                                 <rect key="frame" x="20" y="384" width="374" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="7hg-WB-b0D"/>
+                                    <constraint firstAttribute="height" constant="128" id="tAN-af-HYN"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-rZ-eZi">
                                 <rect key="frame" x="76.5" y="661" width="261" height="54"/>
@@ -41,19 +44,18 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="261" id="Zsn-Mh-GWm"/>
+                                    <constraint firstItem="bDz-q7-MTk" firstAttribute="leading" secondItem="EdT-bB-5iH" secondAttribute="trailing" constant="90" id="avr-vd-2iS"/>
+                                    <constraint firstAttribute="height" constant="54" id="mX4-Ik-rR0"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x80-GR-Bjw">
-                                <rect key="frame" x="294" y="781" width="43" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mn2-Sm-lmV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-fa-a3J">
-                                <rect key="frame" x="76" y="775" width="56" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-fa-a3J">
+                                <rect key="frame" x="76" y="254" width="147" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="F9n-0k-MpU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="khq-jH-d26"/>
+                                </constraints>
                                 <state key="normal" title="to the table" image="folder" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default"/>
                                 </state>
@@ -61,12 +63,35 @@
                                     <segue destination="fWR-eV-AvT" kind="show" identifier="toTheTable" id="FKO-5D-waZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x80-GR-Bjw">
+                                <rect key="frame" x="293" y="260" width="44" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="NWp-NH-r7J"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="moD-w2-dPj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mn2-Sm-lmV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="FlT-rZ-eZi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="240" id="TYf-jT-06w"/>
+                            <constraint firstItem="1Go-fa-a3J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="210" id="5Ea-Hh-YIO"/>
+                            <constraint firstItem="JRa-yA-NKG" firstAttribute="top" secondItem="1Go-fa-a3J" secondAttribute="bottom" constant="88" id="GCn-ml-RcL"/>
+                            <constraint firstItem="JRa-yA-NKG" firstAttribute="top" secondItem="x80-GR-Bjw" secondAttribute="bottom" constant="88" id="IBp-jR-Nr9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x80-GR-Bjw" secondAttribute="trailing" constant="77" id="LEl-oy-7bu"/>
+                            <constraint firstItem="1Go-fa-a3J" firstAttribute="bottom" secondItem="x80-GR-Bjw" secondAttribute="bottom" id="M4e-qX-BPV"/>
+                            <constraint firstItem="x80-GR-Bjw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Go-fa-a3J" secondAttribute="trailing" constant="8" symbolic="YES" id="Q5H-Nb-fe1"/>
+                            <constraint firstItem="FlT-rZ-eZi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qlg-aM-Vo3"/>
+                            <constraint firstItem="JRa-yA-NKG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XQF-oL-9ma"/>
+                            <constraint firstItem="EdT-bB-5iH" firstAttribute="top" secondItem="JRa-yA-NKG" secondAttribute="bottom" constant="149" id="Zfl-Dt-j2z"/>
+                            <constraint firstItem="1Go-fa-a3J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="aoS-lu-F41"/>
+                            <constraint firstItem="JRa-yA-NKG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b5z-rm-0kd"/>
                             <constraint firstItem="FlT-rZ-eZi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lJD-5l-j3x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FlT-rZ-eZi" secondAttribute="bottom" constant="147" id="z3g-tN-aWF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -74,6 +99,7 @@
                         <outlet property="playButton" destination="bDz-q7-MTk" id="6Sf-6H-YTD"/>
                         <outlet property="recordButton" destination="EdT-bB-5iH" id="MKz-9I-2cg"/>
                         <outlet property="saveButton" destination="x80-GR-Bjw" id="RYE-Nz-lFm"/>
+                        <outlet property="waveForm" destination="JRa-yA-NKG" id="kyO-F2-vhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

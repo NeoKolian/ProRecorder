@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-ProRecorder/Pods-ProRecorder-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DSWaveformImage/DSWaveformImage.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework

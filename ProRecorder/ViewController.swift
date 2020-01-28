@@ -9,9 +9,11 @@
 import UIKit
 import AVFoundation
 import RealmSwift
+import DSWaveformImage
 
 class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorderDelegate {
     
+    @IBOutlet weak var waveForm: WaveformImageView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -76,6 +78,19 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
         playButton.setTitle("Play", for: .normal)
     }
     
+    func waveDrawing() {
+        let audioFileName = getDocumentsDirectory().appendingPathComponent(fileName)
+        let waveformImageDrawer = WaveformImageDrawer()
+        waveformImageDrawer.waveformImage(fromAudioAt: audioFileName,
+                                          size: waveForm.bounds.size,
+                                          style: .striped,
+                                          position: .middle) { image in
+            DispatchQueue.main.async {
+                self.waveForm.image = image
+            }
+        }
+    }
+    
     @IBAction func recordAct(_ sender: Any) {
         
         if recordButton.titleLabel?.text == "Record" {
@@ -86,6 +101,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate , AVAudioRecorder
             soundRecorder.stop()
             recordButton.setTitle("Record", for: .normal)
             playButton.isEnabled = false
+            waveDrawing()
         }
     }
     

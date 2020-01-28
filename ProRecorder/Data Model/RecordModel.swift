@@ -21,7 +21,7 @@ class RecordModel: Object {
 
 func dateFormatMethod(date: Date) -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "YYYY-MM-dd_HH/mm/ss"
+    formatter.dateFormat = "YYYY-MM-dd_HH:mm:ss"
     let dateString = formatter.string(from: Date.init())
     return dateString
 }

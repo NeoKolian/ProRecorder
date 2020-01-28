@@ -33,12 +33,6 @@ class RecordTableViewController: UITableViewController {
         
         return obtain.count
     }
-
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SwipeTableViewCell
-//        cell.delegate = self
-//        return cell
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -56,15 +50,6 @@ class RecordTableViewController: UITableViewController {
         
         tableRecord = realm.objects(RecordModel.self)
     }
-    
-//    override func updateModel(at indexPath: IndexPath) {
-//
-//        if let record = tableRecord?[indexPath.row] {
-//                myDBManager.deleteFromDB(object: record)
-//            } else {
-//                print("Error deleting item")
-//            }
-//        }
 }
 
 extension RecordTableViewController: SwipeTableViewCellDelegate {
